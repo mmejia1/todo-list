@@ -1,8 +1,4 @@
-
 const { ConnectionString } = require('connection-string');
-
-
-
 
 module.exports = ({ env }) => {
   const databaseUrl = env('DATABASE_URL');
@@ -13,10 +9,14 @@ module.exports = ({ env }) => {
     const connectionParsed = {
       host: connectionString.hostname,
       port: connectionString.port,
-      database: connectionString.path?.[0],
+      //database: connectionString.path?.[0],
+      database: connectionString.path[0],
       username: connectionString.user,
       password: connectionString.password,
-      ssl: connectionString.params?.ssl ? Boolean(connectionString.params.ssl) : undefined,
+      //ssl: connectionString.params?.ssl
+      ssl: connectionString.params.ssl
+        ? Boolean(connectionString.params.ssl)
+        : undefined,
     };
 
     return {
