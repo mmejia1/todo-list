@@ -59,6 +59,7 @@ const changePermission = async (
 
 const createAdmin = async () => {
   // Required fields:
+  //info for data loggin
   const params = {
     username: process.env.ADMIN_USER || 'admin',
     password: process.env.ADMIN_PASS || 'admin',
